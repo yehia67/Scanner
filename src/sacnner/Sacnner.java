@@ -51,12 +51,14 @@ public class Sacnner {
      return false;
      }
     /**
-     * @param args the command line arguments
+     * @param I
+     * @return 
      * @throws java.io.FileNotFoundException
      * @throws java.io.IOException
      */
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+   public static String scan(String I) throws FileNotFoundException, IOException{
         // TODO code application logic here
+        String answ = "";
         File in = new File("Input.txt");
         BufferedReader br = new BufferedReader(new FileReader(in));
         String s,input = "";
@@ -64,28 +66,30 @@ public class Sacnner {
         while ((s = br.readLine()) != null){
            input +=s;
   }
+        if (!(I.equalsIgnoreCase(null))){
+        input = I;
+        }
         String  comment ="";
         Sacnner sc = new Sacnner();
         String In = input.replace(";"," ;");
      String[] tokken=In.split("\\s");
      
      
-        System.out.println("___________________________________________________");
-        System.out.println("        Read        " +"|"+ "      Reserved word      ");
+      
+        
         for (int i = 0; i < tokken.length; i++) {
             if (sc.isReseved(tokken[i])) {
-                System.out.println("___________________________________________");
-                System.out.println("   "  + tokken[i] +"   " +"|"+ "   "  + "Reserved word" +"   " );
+                answ +="   "  + tokken[i] +"   " +"|"+ "   "  + "Reserved word" +"   "+"\n" ;
             } else if (sc.isSymbol(tokken[i])) {
-               System.out.println("___________________________________________");
-                System.out.println("   "  + tokken[i] +"   " +"|"+ "   "  + "Symbol" +"   " ); 
+               
+                answ +="   "  + tokken[i] +"   " +"|"+ "   "  + "Symbol" +"   " +"\n"; 
             }else if (sc.isNo(tokken[i])) {
-               System.out.println("___________________________________________");
-                System.out.println("   "  + tokken[i] +"   " +"|"+ "   "  + "Number" +"   " ); 
+         
+                answ +="   "  + tokken[i] +"   " +"|"+ "   "  + "Number" +"   " +"\n"; 
             }
             else if (sc.isIdentifer(tokken[i])) {
-               System.out.println("___________________________________________");
-                System.out.println("   "  + tokken[i] +"   " +"|"+ "   "  + "Identifier" +"   " ); 
+               
+                answ +="   "  + tokken[i] +"   " +"|"+ "   "  + "Identifier" +"   " +"\n"; 
             }
             else if (tokken[i].equals("")) {
                 continue;
@@ -96,13 +100,15 @@ public class Sacnner {
                    i++;
                 }
                 comment += tokken[i];
-                 System.out.println("___________________________________________");
-                System.out.println("   "  + comment +"   " +"|"+ "   "  + "Comment" +"   " ); 
+                
+                answ +="   "  + comment +"   " +"|"+ "   "  + "Comment" +"   " +"\n"; 
             }
             else{
-            System.out.println("___________________________________________");
-                System.out.println("   "  + tokken[i] +"   " +"|"+ "   "  + "other" +"   " ); 
+                answ +="   "  + tokken[i] +"   " +"|"+ "   "  + "other" +"   " +"\n"; 
             }           
         }
-    }    
+       
+    return answ;
+    }
+
 }
