@@ -112,15 +112,15 @@ public class gui extends JFrame{
     txtIn.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-              output.setLocation(w/4,  (h/8)+30);
-              output.setSize(w/2,h/2);
-              labelIn.setVisible(false);
-              add(output);
-             visble();
             try {
-                output.setText(Sacnner.scan(in));
+                output.setLocation(w/4,  (h/8)+30);
+                output.setSize(w/2,h/2);
+                labelIn.setVisible(false);
+                add(output);
+                visble();
+                output.setText(Sacnner.scan(""));
             } catch (IOException ex) {
-                System.out.println("el 3'alta hnaaaa!!!!");
+                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         

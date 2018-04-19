@@ -66,7 +66,7 @@ public class Sacnner {
         while ((s = br.readLine()) != null){
            input +=s;
   }
-        if (!(I.equalsIgnoreCase(null))){
+        if (!(I.equalsIgnoreCase(""))){
         input = I;
         }
         String  comment ="";
