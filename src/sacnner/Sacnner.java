@@ -14,7 +14,21 @@ import org.w3c.dom.CharacterData;
  * @author yehia
  */
 public class Sacnner {
-     
+    public static String replacer(String input){
+       String s1 = input.replace("+"," + ");
+       String s2 = s1.replace("-"," - ");
+       String s3 = s2.replace("*"," * ");
+       String s4 = s3.replace("/"," / ");
+       String s5 = s4.replace("="," = ");
+       String s6 = s5.replace("<"," < ");
+       String s7 = s6.replace(">"," > ");
+       String s8 = s7.replace("("," ( ");
+       String s9 = s8.replace(")"," ) ");
+       String s10 = s9.replace(";"," ; ");
+       String s11 = s10.replace(":="," := ");
+       
+      return s11;
+     }
      boolean isReseved(String s){         
      if(s.equalsIgnoreCase("if") || s.equalsIgnoreCase("then") || s.equalsIgnoreCase("else") || s.equalsIgnoreCase("end")
              || s.equalsIgnoreCase("repeate") || s.equalsIgnoreCase("until") || s.equalsIgnoreCase("read") || s.equalsIgnoreCase("write")){
@@ -72,9 +86,10 @@ public class Sacnner {
         String  comment ="";
         Sacnner sc = new Sacnner();
         String In = input.replace(";"," ;");
-     String[] tokken=In.split("\\s");
-     
-     
+        String finalIn = replacer(In);
+     String[] tokken=finalIn.split("\\s");
+         
+          
       
         
         for (int i = 0; i < tokken.length; i++) {
