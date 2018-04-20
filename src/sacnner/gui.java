@@ -166,6 +166,8 @@ public class gui extends JFrame{
     ManualIn.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            setSize(1000, 1000);
+            
             label.setText("Enter your code in the input text area provided");
            input.setVisible(true);
             visble();
@@ -188,10 +190,12 @@ public class gui extends JFrame{
     txtIn.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+
             /*output.setLocation(w/4,  (h/8)+30);
             output.setSize(w/2,h/2);
             labelIn.setVisible(false);
-            add(output);*/
+            add(output);
+            txtIn.setVisible(false);
             pnlcenter.removeAll();
             pnlcenter.setLayout(new GridBagLayout());            
             label.setText("Your code has been imported and scanned");
@@ -205,11 +209,37 @@ public class gui extends JFrame{
             pnlcenter.add(labelout,gbc);
             gbc.gridy=1;
             pnlcenter.add(output,gbc);
-             //visble();
+             //visble();*/
+
             try {
-                output.setText(Scanner.scan(in));
+                setSize(1000, 1000);
+                txtIn.setVisible(false);
+                ManualIn.setVisible(false);
+                label.setText("Your code has been imported and scanned");
+            pnlcenter.removeAll();
+            pnlcenter.setLayout(new GridBagLayout());            
+            gbc.weightx = 1.0;
+            //gbc.weighty = 1.0;
+            gbc.anchor = GridBagConstraints.CENTER;
+            gbc.fill = GridBagConstraints.BOTH;
+            //gbc.ipady = 60;
+            gbc.insets=new Insets(0,0,0,100);
+            gbc.gridy=0;
+            pnlcenter.add(labelout,gbc);
+            gbc.gridy=1;
+            pnlcenter.add(output,gbc);
+            output.setVisible(true);
+            labelout.setVisible(true);
+             //visble();
+                //output.setLocation(w/4,  (h/8)+30);
+                //output.setSize(w/2,h/2);
+                //labelIn.setVisible(false);
+                //add(output);
+                //visble();
+                output.setText(Scanner.scan(""));
+
             } catch (IOException ex) {
-                System.out.println("el 3'alta hnaaaa!!!!");
+                Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
