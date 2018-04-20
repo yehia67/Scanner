@@ -22,20 +22,22 @@ public class Scanner {
        String s2 = s1.replace("-"," - ");
        String s3 = s2.replace("*"," * ");
        String s4 = s3.replace("/"," / ");
-       String s5 = s4.replace("="," = ");
-       String s6 = s5.replace("<"," < ");
+       String s6 = s4.replace("<"," < ");
        String s7 = s6.replace(">"," > ");
        String s8 = s7.replace("("," ( ");
        String s9 = s8.replace(")"," ) ");
        String s10 = s9.replace(";"," ; ");
-       String s11 = s10.replace(":="," := ");
+       String s11 =s10.replace("="," = ");
+       String s12= s11.replace(": =", ":=");
+       String s13= s12.replace(":=", " := ");
+     
        
-      return s11;
+      return s13;
      }
 
      boolean isReseved(String s){         
      if(s.equalsIgnoreCase("if") || s.equalsIgnoreCase("then") || s.equalsIgnoreCase("else") || s.equalsIgnoreCase("end")
-             || s.equalsIgnoreCase("repeate") || s.equalsIgnoreCase("until") || s.equalsIgnoreCase("read") || s.equalsIgnoreCase("write")){
+             || s.equalsIgnoreCase("repeat") || s.equalsIgnoreCase("until") || s.equalsIgnoreCase("read") || s.equalsIgnoreCase("write")){
            
      return true;
      }
@@ -89,8 +91,7 @@ public class Scanner {
         }
         String  comment ="";
         Scanner sc = new Scanner();
-        String In = input.replace(";"," ;");
-        String finalIn = replacer(In);
+        String finalIn = replacer(input);
      String[] tokken=finalIn.split("\\s");
          
           
@@ -113,6 +114,7 @@ public class Scanner {
             else if (tokken[i].equals("")) {
                 continue;
             }
+             
             else if (tokken[i].charAt(0) == '{') {
                 while (tokken[i].charAt((tokken[i].length())-1) != '}') {                    
                    comment += tokken[i] + " "; 
