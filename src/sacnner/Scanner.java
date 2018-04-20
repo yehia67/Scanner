@@ -22,13 +22,25 @@ public class Scanner {
        String s2 = s1.replace("-"," - ");
        String s3 = s2.replace("*"," * ");
        String s4 = s3.replace("/"," / ");
-       String s5 = s4.replace("="," = ");
-       String s6 = s5.replace("<"," < ");
+       String s6 = s4.replace("<"," < ");
        String s7 = s6.replace(">"," > ");
        String s8 = s7.replace("("," ( ");
        String s9 = s8.replace(")"," ) ");
        String s10 = s9.replace(";"," ; ");
-       String s11 = s10.replace(":="," := ");
+       String s11 ="",s5;
+       for(int i = 1; i < input.length();i++){
+        if(input.charAt(i)== '='){
+              if(input.charAt(i-1) == ':')
+              {
+               s11 = s10.replace(":="," := ");
+              }
+              else{
+               s5 = s10.replace("="," = "); 
+              }
+        }
+          
+       
+       }
        
       return s11;
      }
