@@ -13,7 +13,7 @@ import org.w3c.dom.CharacterData;
  *
  * @author yehia
  */
-public class Sacnner {
+public class Scanner {
      
      boolean isReseved(String s){         
      if(s.equalsIgnoreCase("if") || s.equalsIgnoreCase("then") || s.equalsIgnoreCase("else") || s.equalsIgnoreCase("end")
@@ -70,7 +70,7 @@ public class Sacnner {
         input = I;
         }
         String  comment ="";
-        Sacnner sc = new Sacnner();
+        Scanner sc = new Scanner();
         String In = input.replace(";"," ;");
      String[] tokken=In.split("\\s");
      
