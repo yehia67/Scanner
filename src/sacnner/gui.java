@@ -116,9 +116,9 @@ public class gui extends JFrame{
     
     //ManualIn.setLocation(w/2, h/3);
     pnlcenter.setLayout(new GridBagLayout());
-    gbc.insets=new Insets(0,0,0,100);
+    gbc.insets=new Insets(0,0,0,50);
     pnlcenter.add(txtIn,gbc);
-    gbc.insets=new Insets(0,100,0,0);
+    gbc.insets=new Insets(0,50,0,0);
     pnlcenter.add(ManualIn,gbc);
     
     
@@ -142,7 +142,7 @@ public class gui extends JFrame{
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.BOTH;
         //gbc.ipady = 60;
-        gbc.insets=new Insets(0,0,0,100);
+        gbc.insets=new Insets(0,10,0,100);
         gbc.gridy=0;
         //pnlcenter.setSize(200, 200);
         pnlcenter.add(labelIn,gbc);

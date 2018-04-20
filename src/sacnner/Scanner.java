@@ -123,7 +123,7 @@ public class Scanner {
                 answ +="   "  + comment +"   " +"|"+ "   "  + "Comment" +"   " +"\n"; 
             }
             else{
-                answ +="   "  + tokken[i] +"   " +"|"+ "   "  + "other" +"   " +"\n"; 
+                answ +="   "  + tokken[i] +"   " +"|"+ "   "  + "ERROR" +"   " +"\n"; 
             }           
         }
        
